@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('erd');
 });
+
+Route::get('/master', function () {
+    return view('adminlte.master');
+});
+
+Route::get('/pertanyaan/create', 'ItemController@create'); // menampilkan halaman form
+Route::post('/pertanyaan', 'ItemController@store'); // menyimpan data
+Route::get('/pertanyaan', 'ItemController@index'); // menampilkan semua
+Route::get('/pertanyaan/{id}', 'ItemController@show'); // menampilkan detail item dengan id 
+Route::get('/pertanyaan/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
+Route::put('/pertanyaan/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
+Route::delete('/pertanyaan/{id}', 'ItemController@destroy'); // menghapus data dengan id
