@@ -62,6 +62,7 @@
 <script src="{{ asset('/adminLTE/plugins/datatables/jquery.dataTables.j') }}"></script>
 <script src="{{ asset('/adminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
 
+
 <script>
   $(function () {
     $("#example1").DataTable();

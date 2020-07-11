@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+    return view('erd'); //sebelumnya erd
+});
+
+Route::get('/tampilan', function () {
     return view('tampilan'); //sebelumnya erd
 });
 
