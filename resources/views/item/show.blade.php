@@ -8,6 +8,10 @@
         </p>
         <p> Tag : {{$item->tag}}
         </p>
+    <h2>Jawaban</h2>
+    @foreach ($jawabans as $jawaban)
+      <p>{{ $jawaban->jawaban }}</p>
+    @endforeach
     <a href="/pertanyaan" class="btn btn-primary">
     Back
     </a>

@@ -1,7 +1,7 @@
 @extends('adminlte.master')
 @section('content')
 <div class="ml-3 mt-3 mb-3">
-<h1>Data PERTANYAAN</h1>
+<h1>Data Pertanyaan</h1>
 <a href="/pertanyaan/create" class="btn btn-primary">
     Create New
 </a>
@@ -13,7 +13,9 @@
                 <th scope="col">Judul</th>
                 <th scope="col">Isi</th>
                 <th scope="col">Tag</th>
-                <th scope="col">action</th>
+                <th scope="col">Form Jawaban</th>
+                <th scope="col">Lihat Jawaban</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +25,19 @@
                 <td>{{$item->judul}}</td>
                 <td>{{$item->isi}}</td>
                 <td>{{$item->tag}}</td>
+                <td>
+                    <form action="{{ url('/jawaban/'.$item->id) }}" method="post">
+                        @csrf
+                        <input type="text" name="jawaban">
+                        <input type="hidden" name="pertanyaan_id" value="{{ $item->id }}">
+                        <button type="submit" class="btn btn-success">Submit Jawaban</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="{{ url('/jawaban/'.$item->id) }}">
+                        <button type="submit" class="btn btn-success">Lihat Jawaban</button>
+                    </a>
+                </td>
                 <td>
                 <a href="/pertanyaan/{{$item->id}}" class="btn btn-primary">
                     show

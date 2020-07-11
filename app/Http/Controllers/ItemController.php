@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ItemModel;
+use App\Models\JawabanModel;
 
 class ItemController extends Controller
 {
@@ -25,8 +26,9 @@ class ItemController extends Controller
 
     public function show($id){
         $item = ItemModel::cari_data($id);
+        $jawabans = JawabanModel::find_by_pertanyaan_id($id);
         //dd($items);
-        return view('item.show', compact('item'));
+        return view('item.show', compact('item', 'jawabans'));
     }
 
     public function edit($id){

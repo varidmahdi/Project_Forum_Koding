@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('erd');
+    return view('tampilan'); //sebelumnya erd
 });
 
 Route::get('/master', function () {
@@ -26,3 +26,6 @@ Route::get('/pertanyaan/{id}', 'ItemController@show'); // menampilkan detail ite
 Route::get('/pertanyaan/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
 Route::put('/pertanyaan/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
 Route::delete('/pertanyaan/{id}', 'ItemController@destroy'); // menghapus data dengan id
+
+Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');
+Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store');
