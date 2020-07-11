@@ -23,19 +23,20 @@ class ItemModel{
     public static function update($id, $request){
          //dd($request->all());
          $pertanyaan = DB::table('pertanyaans')
-                     ->where('id', $id)
-                     ->update([
+                        ->where('id', $id)
+                        ->update([
                          'judul' => $request["judul"],
-                         'isi' => $request["isi"],
-                         'tag' => $request["tag"]
+                         'isi' => $request["isi"]
+                        //  'tag_id' => $request["tag_id"]
                      ]);
          return $pertanyaan;
      }
 
     public static function hapus($id){
-        $delete = DB::table('pertanyaans')
-        ->where('id', $id)->delete();
-        return $delete;
+        $deleted = DB::table('pertanyaans')
+                    ->where('id', $id)
+                    ->delete();
+        return $deleted;
      }
     
 

@@ -9,7 +9,6 @@ use App\Models\JawabanModel;
 
 // Model Eloquent
 use App\Item;
-use App\Pertanyaan;
 use App\Models\Tag;
 
 class ItemController extends Controller
@@ -25,8 +24,8 @@ class ItemController extends Controller
         // return redirect('pertanyaan');
 
         // cara baru dengan elequent
-        // create pertanyaan baru
-        $new_pertanyaan = Item::create([
+        // create item baru
+        $new_item = Item::create([
             "judul" => $request["judul"],
             "isi" => $request["isi"]
         ]);
@@ -42,7 +41,7 @@ class ItemController extends Controller
         foreach($tagsMulti as $tagCheck)
         {
             $tag = Tag::firstOrCreate($tagCheck);
-            $new_pertanyaan->tags()->attach($tag->id);
+            $new_item->tags()->attach($tag->id);
         }
 
         return redirect('/pertanyaan');
@@ -50,7 +49,6 @@ class ItemController extends Controller
 
     public function index(){
         $items = ItemModel::get_all();
-        //dd($items);
         return view('item.index', compact('items'));
     }
 
@@ -58,27 +56,24 @@ class ItemController extends Controller
         // $item = ItemModel::cari_data($id);
 
         $item = Item::find($id);
-        // dd($item->tags);
         $jawabans = JawabanModel::find_by_pertanyaan_id($id);
         return view('item.show', compact('item', 'jawabans'));
     }
 
     public function edit($id){
         $item = ItemModel::cari_data($id);
-        //dd($items);
         return view('item.edit', compact('item'));
     }
 
     public function update($id, Request $request){
-        //dd($request->all());
-        $new_item = ItemModel::update($id, $request->all());
-        return redirect('pertanyaan');
+        ItemModel::update($id, $request->all());
+        return redirect('/pertanyaan');
     }
 
     public function destroy($id){
         $hapus = ItemModel::hapus($id);
-        //dd($items);
-        return redirect('pertanyaan');
+        
+        return redirect('/pertanyaan');
     }
 }
 
