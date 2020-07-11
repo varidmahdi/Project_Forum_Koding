@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// Model Custom
 use App\Models\ItemModel;
 use App\Models\JawabanModel;
+
+// Model Eloquent
+use App\Item;
+use App\Pertanyaan;
+use App\Models\Tag;
 
 class ItemController extends Controller
 {
@@ -14,8 +20,32 @@ class ItemController extends Controller
 
     public function store(Request $request){
         //dd($request->all());
-        $new_pertanyaan = ItemModel::save($request->all());
-        return redirect('pertanyaan');
+        // cara lama dengan query builder
+        // $new_pertanyaan = ItemModel::save($request->all());
+        // return redirect('pertanyaan');
+
+        // cara baru dengan elequent
+        // create pertanyaan baru
+        $new_pertanyaan = Item::create([
+            "judul" => $request["judul"],
+            "isi" => $request["isi"]
+        ]);
+        
+        $tagArr = explode(',', $request->tags);
+        $tagsMulti = [];
+        foreach($tagArr as $strTag)
+        {
+            $tagArrAssc["tag_name"] = $strTag;
+            $tagsMulti[] = $tagArrAssc;
+        }
+        // create tags baru
+        foreach($tagsMulti as $tagCheck)
+        {
+            $tag = Tag::firstOrCreate($tagCheck);
+            $new_pertanyaan->tags()->attach($tag->id);
+        }
+
+        return redirect('/pertanyaan');
     }
 
     public function index(){
@@ -25,9 +55,11 @@ class ItemController extends Controller
     }
 
     public function show($id){
-        $item = ItemModel::cari_data($id);
+        // $item = ItemModel::cari_data($id);
+
+        $item = Item::find($id);
+        // dd($item->tags);
         $jawabans = JawabanModel::find_by_pertanyaan_id($id);
-        //dd($items);
         return view('item.show', compact('item', 'jawabans'));
     }
 

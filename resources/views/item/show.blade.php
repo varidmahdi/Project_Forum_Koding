@@ -6,8 +6,9 @@
         </p>
         <p> Isi : {{$item->isi}}
         </p>
-        <p> Tag : {{$item->tag}}
-        </p>
+        @foreach($item->tags as $tag)
+          <button class="btn btn-default btn-sm">{{ $tag->tag_name }}</button>
+        @endforeach
     <h2>Jawaban</h2>
     @foreach ($jawabans as $jawaban)
       <p>{{ $jawaban->jawaban }}</p>

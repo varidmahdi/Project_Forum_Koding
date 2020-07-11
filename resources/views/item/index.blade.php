@@ -12,7 +12,6 @@
                 <th scope="col">#</th>
                 <th scope="col">Judul</th>
                 <th scope="col">Isi</th>
-                <th scope="col">Tag</th>
                 <th scope="col">Form Jawaban</th>
                 <th scope="col">Lihat Jawaban</th>
                 <th scope="col">Action</th>
@@ -24,7 +23,6 @@
             <th scope="row">{{ $key+1 }}</th>
                 <td>{{$item->judul}}</td>
                 <td>{{$item->isi}}</td>
-                <td>{{$item->tag}}</td>
                 <td>
                     <form action="{{ url('/jawaban/'.$item->id) }}" method="post">
                         @csrf
