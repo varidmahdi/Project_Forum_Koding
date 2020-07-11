@@ -11,7 +11,7 @@
       @foreach ($jawabans as $jawaban)
         <p>{{ $jawaban->jawaban }}</p>
       @endforeach
-      <a href="/pertanyaan" class="btn btn-primary">
+      <a href="{{ url('/pertanyaan') }}" class="btn btn-primary">
         Back
       </a>
   </div>
