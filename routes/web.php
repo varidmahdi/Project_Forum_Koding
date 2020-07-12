@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+    return view('item.login'); //sebelumnya erd
+});
+
+Route::get('/erd', function () {
     return view('erd'); //sebelumnya erd
 });
 
