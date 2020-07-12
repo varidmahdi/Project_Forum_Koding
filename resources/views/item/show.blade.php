@@ -8,7 +8,7 @@
       <div class="col">
         <div class="card">
           <div class="card-header p-2">
-            <h2>Pertanyaan</h2>
+            <h4>Pertanyaan</h4>
           </div><!-- /.card-header -->
           <div class="card-body">
             <div class="tab-content">
@@ -81,7 +81,7 @@
       <div class="col">
         <div class="card">
           <div class="card-header p-2">
-            <h2>Jawaban</h2>
+            <h6>Jawaban</h6>
           </div><!-- /.card-header -->
           @foreach ($jawabans as $jawaban)
           <div class="card-body">
