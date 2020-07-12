@@ -14,7 +14,7 @@
         @foreach($items as $key => $item)
         <div class="card">
           <div class="card-header p-2">
-            <h2>Pertanyaan#{{ $key+1 }}</h2>
+            <h5>Pertanyaan # {{ $key+1 }}</h5>
           </div><!-- /.card-header -->
           <div class="card-body">
             <div class="tab-content">
@@ -49,9 +49,9 @@
                 
                 <!-- Post -->
                 <!-- /.user-block -->
-                     <span class="username">
-                      JAWABAN ANDA
-                    </span>
+                     <h9>
+                     Jawaban Anda 
+                    </h9>
                   <form class="form-horizontal"  action="{{ url('/jawaban/'.$item->id) }}" method="post">
                     @csrf
                     <div class="input-group input-group-sm mb-0">
