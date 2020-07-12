@@ -35,7 +35,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('/') }}" class="nav-link">
+                <a href="{{ url('/erd') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>ERD</p>
                 </a>
