@@ -28,9 +28,8 @@
                   </p>
 
                   <p>
-                    <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                    <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                    <span class="float-right">
+                    <a href="#" class="link-black text-sm mr-2"><i class="fas fa-thumbs-down mr-1"></i> Dislike</a>
+                    <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>                    <span class="float-right">
                       <a href="#" class="link-black text-sm">
                         <i class="far fa-comments mr-1"></i> Jawaban (5)
                       </a>
@@ -105,7 +104,7 @@
      
 
                   <p>
-                    <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                    <a href="#" class="link-black text-sm mr-2"><i class="fas fa-thumbs-down mr-1"></i> Dislike</a>
                     <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
                     <span class="float-right">
                       <a href="#" class="link-black text-sm">
