@@ -47,14 +47,25 @@
                 @endforeach
                   </p>
 
-                  <form class="form-horizontal">
+                  <!-- <form class="form-horizontal">
                     <div class="input-group input-group-sm mb-0">
                       <input class="form-control form-control-sm" placeholder="Jawaban">
                       <div class="input-group-append">
                         <button type="submit" class="btn btn-danger">Send</button>
                       </div>
                     </div>
+                  </form> -->
+                  <form class="form-horizontal"  action="{{ url('/jawaban/'.$item->id) }}" method="post">
+                    @csrf
+                    <div class="input-group input-group-sm mb-0">
+                      <input class="form-control form-control-sm" type="text" name="jawaban" placeholder="Jawaban">
+                      <input type="hidden" name="pertanyaan_id" value="{{ $item->id }}">
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-danger">Send</button>
+                      </div>
+                    </div>
                   </form>
+
                 </div>
                 <!-- /.post -->
               </div>

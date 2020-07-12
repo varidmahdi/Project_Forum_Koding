@@ -26,10 +26,23 @@ class ItemModel{
                         ->where('id', $id)
                         ->update([
                          'judul' => $request["judul"],
-                         'isi' => $request["isi"]
-                        //  'tag_id' => $request["tag_id"]
+                         'isi' => $request["isi"],
+                         //'tag' => $request["tag_id"]
                      ]);
+
+        //  $id_tag = DB::table('pertanyaan_tag')->where('pertanyaan_id', $id)->first();
+        //  dd($id_tag->all());
+        //  return $id_tag;
+        //  $tag = DB::table('tags')
+        //                 ->where('id', $id_tag)
+        //                 ->update([
+        //                  // 'judul' => $request["judul"],
+        //                  // 'isi' => $request["isi"]
+        //                     'tag_name' => $request["tag_id"]
+        //              ]);
+
          return $pertanyaan;
+         //return $tag;
      }
 
     public static function hapus($id){

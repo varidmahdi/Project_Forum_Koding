@@ -3,7 +3,7 @@
 <div class="ml-3">
   <div class="card card-primay">
     <div class="card-header">
-      <h2 class="card-title"> ---  Edit Artikel  ---</h2>
+      <h2 class="card-title"> ---  Edit Pertanyaan  ---</h2>
     </div>
       <form role="form" action="{{ url('/pertanyaan/'.$item->id) }}" method="POST">
         @csrf

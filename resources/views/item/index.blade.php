@@ -78,7 +78,7 @@
                     <a href="{{ url('/pertanyaan/'.$item->id.'/edit') }}" class="btn btn-sm btn-default">
                         edit
                     </a>
-                    <form action="{{ url('/pertanyaan/'.$item->id) }}" method="post" style="display: inline">
+                    <form action="{{ url('/pertanyaan/'.$item->id) }}" method="post" style="display:inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-sm btn-danger">delete </button>
